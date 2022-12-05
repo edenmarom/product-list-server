@@ -8,4 +8,5 @@ export interface Product extends mongoose.Document {
   description: string;
   rating: number;
   stockAmount: number;
+  imgUrl2: string;
 }

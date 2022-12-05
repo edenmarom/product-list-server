@@ -1,15 +1,15 @@
 import { initDb } from "./db";
 import { getAllProductQuery } from "./db-queries";
 import mongoose from "mongoose";
+import cors from "cors";
+
 
 const express = require("express");
 
 const app = express();
 const port = 3000;
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
+app.use(cors());
 
 app.get("/getAllProducts", async (req, res) => {
   const products: mongoose.Document[] = await getAllProductQuery();
