@@ -1,11 +1,19 @@
 import mongoose from "mongoose";
-import { db } from "./db";
 import { Product } from "./models/product.model";
+import { Order } from "./models/order.model";
 import { ProductModel } from "./schemas/product";
-import { keyBy } from "lodash";
+import { OrderModel } from "./schemas/order";
 
 export const getAllProductQuery = (): mongoose.Query<Product[], Product> => {
   return ProductModel.find();
+};
+
+export const getAllOrdersQuery = (): mongoose.Query<Product[], Product> => {
+  return OrderModel.find();
+};
+
+export const createNewOrder = (order: Order): Promise<mongoose.Document> => {
+  return OrderModel.create({ order: order });
 };
 
 // export const getProductsQuery = async (
